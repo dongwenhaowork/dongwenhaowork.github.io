@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    <style type="text/css">
+        /*行布局，从整个页面中划出多行。每行为页面的1个部分。css类选择器*/
+        div.all-rowSplit { display: block; margin-bottom: 30px; margin-left: 40px; }
+
+        /*列布局，从整个页面中划出多列。每列为页面的1个部分。css类选择器*/
+        div.all-columnSplit { display: inline-block; vertical-align: top; }
+
+        /*区域的标题*/
+        div.areaTitle-div { display: block; border-top-style: solid; border-top-color: blue; color: blue; font-size: large; margin-bottom: 10px; }
+
+        /*行布局，从页面的部分中划出多行。css类选择器*/
+        div.part-rowSplit { display: block; }
+
+        /*列布局，从页面的部分中划出多列。css类选择器*/
+        div.part-columnSplit { display: inline-block; vertical-align: top; }
+
+
+        /*header右边，显示菜单列表的1项（链接列表的1项）*/
+        h2.rightHeader-div { width: 100px; text-decoration: none; text-align: center; color: white; font-size: large; }
+        /*header右边，显示菜单列表的1项（链接列表的1项）*/
+        a.rightHeader-a { display: inline-block; width: 100px; text-decoration: none; text-align: center; color: white; font-size: large; height: 25px; float: right; }
+            a.rightHeader-a:hover { background-color: darkblue; }
+        /*header右边，显示菜单列表的1项（链接列表的1项）,这个用于当前打开的选项*/
+        a.rightHeader-open-a { background-color: white; color: black; display: inline-block; width: 100px; text-decoration: none; text-align: center; font-size: large; height: 25px; float: right; }
+
+
+
+        /*技能点 */
+        div.skillPoint-div { display: inline-block; vertical-align: top; margin-bottom: 10px; padding-right: 20px; padding-left: 20px; background-color: blue; color: white; }
+
+            /*红-橙-黄-绿-蓝-靛-紫,波长依次变短,频率依次变大!*/
+            /*红色*/
+            div.skillPoint-div:nth-child(7n+1) { background-color: red; }
+            /*橙色 颜色浅*/
+            div.skillPoint-div:nth-child(7n+2) { background-color: orange; color: purple; }
+            /*黄色 颜色浅*/
+            div.skillPoint-div:nth-child(7n+3) { background-color: yellow; color: purple; }
+            /*绿色*/
+            div.skillPoint-div:nth-child(7n+4) { background-color: green; }
+            /*蓝色*/
+            div.skillPoint-div:nth-child(7n+5) { background-color: blue; }
+            /*靛色*/
+            div.skillPoint-div:nth-child(7n+6) { background-color: indigo; }
+            /*紫色*/
+            div.skillPoint-div:nth-child(7n+7) { background-color: purple; }
+    </style>
+
+</head>
+<body style="height: 1212px; width: 1300px; margin-top: 0px;">
+
+
+    <!-- header占位置的div -->
+    <div class="all-rowSplit" style="height: 40px;">
+        <!-- header实际内容的div -->
+        <div style="height: 25px; background-color: blue; color: white;">
+            <!-- header左边，显示昵称 -->
+            <div class="all-columnSplit" style="vertical-align: central; width: 219px; float: left; font-size: large;">董文浩的简介</div>
+
+            <!-- header右边，显示菜单列表（链接列表） -->
+            <div class="all-columnSplit" style="vertical-align: central; width: 450px; float: right;">
+
+                <a class="rightHeader-a" href="TestHtmlPage.html">
+                    <div class="rightHeader-div">联系方式</div>
+                </a>
+
+                <a class="rightHeader-a" href="TestHtmlPage.html">
+                    <div class="rightHeader-div">我的作品</div>
+                </a>
+
+                <a class="rightHeader-a" href="TestHtmlPage.html">
+                    <div class="rightHeader-div">我的技能</div>
+                </a>
+
+                <a class="rightHeader-open-a" href="TestHtmlPage.html">
+                    <div class="rightHeader-div">我的首页</div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="all-rowSplit">
+        <div class="areaTitle-div">我的座右铭</div>
+        <div class="part-columnSplit">
+            <img alt="" src="./App_Picture/奔跑.jpg" style="height: 226px; width: 868px" />
+        </div>
+    </div>
+
+
+    <div class="all-rowSplit">
+
+        <!-- 我的技能点 -->
+        <div class="all-columnSplit" style="width: 280px;">
+            <div class="areaTitle-div">我的技能点</div>
+
+            <div class="part-rowSplit">
+                <div class="skillPoint-div">C</div>
+                <div class="skillPoint-div">C#</div>
+                <div class="skillPoint-div">C++</div>
+                <div class="skillPoint-div">Java</div>
+                <div class="skillPoint-div">SQL Server</div>
+                <div class="skillPoint-div">SQLite</div>
+                <div class="skillPoint-div">HTML5</div>
+                <div class="skillPoint-div">CSS</div>
+                <div class="skillPoint-div">JavaScript</div>
+                <div class="skillPoint-div">ASP.NET</div>
+                <div class="skillPoint-div">Unity</div>
+                <div class="skillPoint-div">Visual Studio</div>
+                <div class="skillPoint-div">Eclipse</div>
+                <div class="skillPoint-div">Navicat</div>
+                <div class="skillPoint-div">3ds Max</div>
+                <div class="skillPoint-div">WPS</div>
+                <div class="skillPoint-div">Office</div>
+                <div class="skillPoint-div">Windows</div>
+                <div class="skillPoint-div">Ubuntu</div>
+            </div>
+        </div>
+        <!-- 两个列区域的间隔 -->
+        <div class="all-columnSplit" style="width: 40px;"></div>
+
+
+        <!-- 我的简介 -->
+        <div class="all-columnSplit" style="height: auto; width: 921px;">
+            <div class="areaTitle-div">我的简介</div>
+            &nbsp;&nbsp;各位评委大家好，我是一名即将毕业的计算机系本科生。大学的四年，给我奠定了扎实的专业理论基础，良好的组织能力，团队协作精神，务实的工作作风还有良好的为人处世能力。<br />
+            <br />
+            &nbsp;&nbsp;理论学习上，我认真学习专业知识理论，在学好专业必修课的同时，我还阅读了大量计算机书籍。同时对于法律、文学等方面的非专业知识我也有浓厚的兴趣。在校期间，在专业考试中屡次获得单科第一。获得院设奖学金一次，院三等奖学金五次。是个成绩优秀的学生，一致受到老师和同学的好评。<br />
+            <br />
+            &nbsp;&nbsp;在专业知识上，我除了精通Visual Basic、SQL Server、ASP，熟练使用Linux、Windows 9x/Me/NT/2000/XP等操作系统，熟练使用Office、WPS办公自动化软件。还自学HTML 、Frontpage 、Dreamweaver 、Fireworks 、Flash等网页制作相关软件。对于常用软件都能熟练使用。运用自如。<br />
+            <br />
+            &nbsp;&nbsp;工作上，曾担任院学生会成员、副班长等职，现任计算机系团总支组织部部长。多次组织系部、班级联欢会、春游等活动，受到老师、同学们的一致好评。思想修养上，我品质优秀，思想进步，笃守诚、信、礼、智的做人原则。<br />
+            &nbsp;&nbsp;在社会实践上，四年的大学生活，我对自己严格要求，注重能力的培养，尤其是实践动手能力更是我的强项。曾多次参加社会实践活动，具有一定的实践经验和动手能力。<br />
+            <br />
+            &nbsp;&nbsp;无论今后从事什么样的工作，我都会把新的工作当做一个新的起点，不断学习和加强专业技能，以我孜孜不倦的学习态度和踏实负责的作风把每一项工作做好。<br />
+            <br />
+        </div>
+    </div>
+
+</body>
+</html>

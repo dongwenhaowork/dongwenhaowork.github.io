@@ -1,0 +1,5 @@
+本地计算机
+certlm.msc
+
+当前用户
+certmgr.msc

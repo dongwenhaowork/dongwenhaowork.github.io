@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="shortcut icon" href="../App_Picture/favicon.ico" />
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>董文浩的简介-我的首页</title>
+
+    <style type="text/css">
+        /*2个区域的垂直距离,2个行区域的距离*/
+        div.rowSplit-distance { height: 30px; }
+
+        /*2个区域的水平距离，2个列区域的距离*/
+        div.columnSplit-distance { display: inline-block; vertical-align: top; width: 5%; }
+
+        /*行布局，将整个页面(body标签内部)划分为多行。。css类选择器*/
+        div.all-rowSplit { display: block; margin-bottom: 30px; /*指定行的间距*/ }
+
+        /*列布局，将整个页面(body标签内部)划分出来的多行，划分为多列。每列为页面的1个部分。css类选择器*/
+        div.all-columnSplit { display: inline-block; vertical-align: top; font-size: medium; width: 100%; }
+
+
+        /*区域的标题*/
+        div.areaTitle-div { display: block; border-top-style: solid; border-top-color: blue; color: blue; font-size: large; font-weight: bold; margin-bottom: 10px; /*指定标题与正文的间距*/ }
+
+
+        /*行布局，从页面的部分中划出多行。css类选择器*/
+        div.part-rowSplit { display: block; }
+
+        /*列布局，从页面的部分中划出多列。css类选择器*/
+        div.part-columnSplit { display: inline-block; vertical-align: top; }
+
+
+        /*header右边，显示菜单列表的1项（链接列表的1项）*/
+        h2.rightHeader-div { width: 100px; text-decoration: none; text-align: center; color: white; font-size: large; }
+
+        /*header右边，显示菜单列表的1项（链接列表的1项）*/
+        a.rightHeader-a { display: inline-block; width: 100px; text-decoration: none; text-align: center; color: white; font-size: large; height: 25px; position: static; }
+            a.rightHeader-a:hover { background-color: darkblue; }
+
+        /*header右边，显示菜单列表的1项（链接列表的1项）,这个用于当前打开的选项*/
+        a.rightHeader-open-a { background-color: white; color: black; display: inline-block; width: 100px; text-decoration: none; text-align: center; font-size: large; height: 25px; position: static; }
+
+
+        /*我的座右铭的1项*/
+        img.motto-img { display: inline-block; width: 25%; height: auto; font-size: medium; }
+
+        /*技能点 */
+        div.skillPoint-div { display: inline-block; vertical-align: top; margin-bottom: 15px; margin-right: 10px; padding-left: 10px; padding-right: 10px; background-color: blue; color: white; }
+            /*红-橙-黄-绿-蓝-靛-紫,波长依次变短,频率依次变大!*/
+            /*红色*/
+            div.skillPoint-div:nth-child(7n+1) { background-color: red; }
+            /*橙色 颜色浅*/
+            div.skillPoint-div:nth-child(7n+2) { background-color: orange; color: purple; }
+            /*黄色 颜色浅*/
+            div.skillPoint-div:nth-child(7n+3) { background-color: yellow; color: purple; }
+            /*绿色*/
+            div.skillPoint-div:nth-child(7n+4) { background-color: green; }
+            /*蓝色*/
+            div.skillPoint-div:nth-child(7n+5) { background-color: blue; }
+            /*靛色*/
+            div.skillPoint-div:nth-child(7n+6) { background-color: indigo; }
+            /*紫色*/
+            div.skillPoint-div:nth-child(7n+7) { background-color: purple; }
+    </style>
+
+</head>
+<body style="margin-top: 0px; min-width: 600px;" onload="MottoImageStartChange();">
+
+    <!-- header占位置的div -->
+    <div class="all-rowSplit" style="height: 25px;"></div>
+
+    <!-- header实际内容的div   header左边，显示昵称  -->
+    <div id="entityLeftHeader-div" style="padding-left: 8px; vertical-align: central; background-color: blue; color: white; font-size: large; height: 25px; width: 100%; position: fixed; top: 0px; left: 0px; z-index: 9999; visibility: visible;">董文浩的简介</div>
+
+    <!-- header实际内容的div   header右边，显示菜单列表（链接列表） -->
+    <!--下面的2个div 用于实现header的特殊效果 -->
+    <div id="entityRightHeader-div" style="vertical-align: central; background-color: blue; height: 25px; font-size: 0px; position: fixed; left: 120px; right: 0px; top: 0px; overflow: hidden; z-index: 9999; visibility: visible;">
+        <div style="vertical-align: central; background-color: blue; height: 25px; max-width: 400px; width: 100%; font-size: 0px; position: absolute; right: 0px; top: 0px; overflow: hidden; z-index: 9999;">
+            <a class="rightHeader-open-a" href="./MyIndex.html">
+                <div class="rightHeader-div">我的首页</div>
+            </a>
+            <a class="rightHeader-a" href="./MySkill.html">
+                <div class="rightHeader-div">我的技能</div>
+            </a>
+            <a class="rightHeader-a" href="./MyProduction.html">
+                <div class="rightHeader-div">我的作品</div>
+            </a>
+            <a class="rightHeader-a" href="./ContactInformation.html">
+                <div class="rightHeader-div">联系方式</div>
+            </a>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        //header左边，显示昵称
+        var divEntityLeftHeader = document.getElementById("entityLeftHeader-div");
+        // header右边，显示菜单列表（链接列表）
+        var divEntityRightHeader = document.getElementById("entityRightHeader-div");
+
+        var scrollFunc = function (e)
+        {
+            e = e || window.event;
+
+            var boolIsMoveUp = false;
+            var boolIsMoveDown = false;
+
+            if (e.wheelDelta)
+            {   //第一步：先判断浏览器IE，谷歌滑轮事件               
+                if (e.wheelDelta > 0)
+                {   //当滑轮向上滚动时  
+                    boolIsMoveUp = true;
+                }
+                if (e.wheelDelta < 0)
+                {   //当滑轮向下滚动时  
+                    boolIsMoveDown = true;
+                }
+            }
+            else if (e.detail)
+            {   //Firefox滑轮事件  
+                if (e.detail > 0)
+                {   //当滑轮向上滚动时  
+                    boolIsMoveUp = true;
+                }
+                if (e.detail < 0)
+                {   //当滑轮向下滚动时  
+                    boolIsMoveDown = true;
+                }
+            }
+            if (boolIsMoveUp)
+            {
+                divEntityLeftHeader.style.visibility = "visible";
+                divEntityRightHeader.style.visibility = "visible";
+            }
+            else if (boolIsMoveDown)
+            {
+                divEntityLeftHeader.style.visibility = "hidden";
+                divEntityRightHeader.style.visibility = "hidden";
+            }
+        }
+
+        //给页面绑定滑轮滚动事件  
+        if (document.addEventListener)
+        {//firefox  
+            document.addEventListener('DOMMouseScroll', scrollFunc, false);
+        }
+        //滚动滑轮触发scrollFunc方法  //ie 谷歌  
+        window.onmousewheel = document.onmousewheel = scrollFunc;
+        </script>
+
+
+
+    <!--我的座右铭区域-->
+    <div class="all-rowSplit">
+        <div class="all-columnSplit">
+            <div class="areaTitle-div">我的座右铭</div>
+            <div class="part-columnSplit" style="width: 100%; overflow: hidden; height: auto;">
+                <div id="motto-imgArray-div" style="width: 400%; font-size: 0px; position: relative; left: 0%;">
+                    <img class="motto-img" alt="" src="../App_Picture/奔跑.jpg" />
+                    <img class="motto-img" alt="" src="../App_Picture/尝试.jpg" />
+                    <img class="motto-img" alt="" src="../App_Picture/初心.jpg" />
+                    <img class="motto-img" alt="" src="../App_Picture/勤思.jpg" />
+                </div>
+                <script type="text/javascript">
+                    var numberInterval = 200;//定时器的时间间隔(单位：毫秒)
+                    var numberKeepIndex = 20;//持续显示1张图片的时间为numberKeepIndex*numberInterval(单位：毫秒)
+                    var divMottoImageArraywidth = -300;//
+
+                    var intervalShowMottoImage;//使div标签自动切换的指定的周期来调用函数的定时器
+                    var divMottoImageArray;//id="motto-imgArray-div"的div标签的引用
+                    var numberArrayLeftChange = new Array();//1次移动，移动的距离，所有值的和要等于1个图片的宽度
+                    var numberIndex = 0;//当前移动的移动的距离在numberArrayLeftChange中的下标
+                    //完成定时器启用的准备工作，并且开始启用定时器
+                    var boolIsMoveLeft = true;//是否是向左移动
+                    function MottoImageStartChange()
+                    {
+                        divMottoImageArray = document.getElementById("motto-imgArray-div");
+                        var stringLeft = divMottoImageArray.style.left.toString().replace("%", "");
+                        var numberLeft = parseInt(stringLeft);
+
+                        var i = 0;
+                        numberArrayLeftChange[i++] = 8;
+                        numberArrayLeftChange[i++] = 20;
+                        numberArrayLeftChange[i++] = 44;
+                        numberArrayLeftChange[i++] = 20;
+                        numberArrayLeftChange[i++] = 8;
+
+                        numberIndex = numberArrayLeftChange.length;
+                        intervalShowMottoImage = self.setInterval("MottoImageChange()", numberInterval);
+                    }
+                    //定时器执行的内容
+                    function MottoImageChange()
+                    {
+                        var stringLeft = divMottoImageArray.style.left.toString().replace("%", "");
+                        var numberLeft = parseInt(stringLeft);
+
+                        //判断现在是需要向左移动，还是向右移动
+                        if (numberLeft == 0) boolIsMoveLeft = true;
+                        if (numberLeft == divMottoImageArraywidth) boolIsMoveLeft = false;
+
+                        if (numberIndex < numberArrayLeftChange.length)
+                        {
+                            var numberNewLeft = (boolIsMoveLeft) ? (numberLeft - numberArrayLeftChange[numberIndex]) : (numberLeft + numberArrayLeftChange[numberIndex]);
+                            divMottoImageArray.style.left = numberNewLeft + "%";
+                        } else if (numberIndex >= numberArrayLeftChange.length + numberKeepIndex)
+                        {
+                            numberIndex = -1;
+                        }
+                        numberIndex++;
+                    }
+                </script>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="all-rowSplit" style="font-size: 0px;">
+
+        <!-- 我的技能点 -->
+        <div class="all-columnSplit" style="width: 20%;">
+            <div class="areaTitle-div">我的技能点</div>
+            <div class="part-rowSplit">
+                <div class="skillPoint-div">C</div>
+                <div class="skillPoint-div">C#</div>
+                <div class="skillPoint-div">C++</div>
+                <div class="skillPoint-div">Java</div>
+                <div class="skillPoint-div">SQL Server</div>
+                <div class="skillPoint-div">SQLite</div>
+                <div class="skillPoint-div">HTML5</div>
+                <div class="skillPoint-div">CSS</div>
+                <div class="skillPoint-div">PHP</div>
+                <div class="skillPoint-div">JavaScript</div>
+                <div class="skillPoint-div">ASP.NET</div>
+                <div class="skillPoint-div">Unity</div>
+                <div class="skillPoint-div">Visual Studio</div>
+                <div class="skillPoint-div">Eclipse</div>
+                <div class="skillPoint-div">Navicat</div>
+                <div class="skillPoint-div">3ds Max</div>
+                <div class="skillPoint-div">WPS Office</div>
+                <div class="skillPoint-div">Microsoft Office</div>
+                <div class="skillPoint-div">Windows</div>
+                <div class="skillPoint-div">Ubuntu</div>
+            </div>
+        </div>
+        <!-- 两个列区域的间隔 -->
+        <div class="columnSplit-distance"></div>
+
+        <!-- 我的简介 -->
+        <div class="all-columnSplit" style="height: auto; width: 75%;">
+            <div class="areaTitle-div" >我的简介</div>
+            <div class="part-rowSplit" style="text-indent: 2em; line-height: 2;font-size: medium;">
+                <p>我是一名即将毕业的计算机系本科生。大学的四年，给我奠定了扎实的专业理论基础，良好的组织能力，团队协作精神，务实的工作作风还有良好的为人处世能力。</p>
+                <p>理论学习上，我认真学习专业知识理论，在学好专业必修课的同时，我还阅读了大量计算机书籍。同时对于金融、文学等方面的非专业知识我也有浓厚的兴趣。在校期间，在专业考试中屡次获得单科第一。获得一等奖学金、二等奖学金、三等奖学金多次。是个成绩优秀的学生，一致受到老师和同学的好评。</p>
+                <p>在专业知识上，我非常熟练使用C#，熟练使用SQL Server、HTML、3ds Max、Unity，熟练使用Visual Studio、Eclipse开发工具，还会使用TCP/IP、C、C++、Java、SQLite、Navicat、PHP、JavaScript、CSS、ASP.NET等。</p>
+                <p>工作上，曾担组织委员，积极参与活动组织，受到老师、同学们的一致好评。思想修养上，我品质优秀，思想进步，笃守诚、信、礼、智的做人原则。</p>
+                <p>在社会实践上，四年的大学生活，我对自己严格要求，注重能力的培养，尤其是实践动手能力更是我的强项。</p>
+                <p>无论今后从事什么样的工作，我都会把新的工作当做一个新的起点，不断学习和加强专业技能，以我孜孜不倦的学习态度和踏实负责的作风把每一项工作做好。</p>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

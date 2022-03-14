@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="shortcut icon" href="../App_Picture/favicon.ico"/>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>董文浩的简介-联系方式</title>
+
+    <style type="text/css">
+        /*2个区域的垂直距离,2个行区域的距离*/
+        div.rowSplit-distance { height: 30px; }
+
+        /*2个区域的水平距离，2个列区域的距离*/
+        div.columnSplit-distance { display: inline-block; vertical-align: top; width: 5%; }
+
+        /*行布局，将整个页面(body标签内部)划分为多行。。css类选择器*/
+        div.all-rowSplit { display: block; margin-bottom: 30px; /*指定行的间距*/ width: 100%; }
+
+        /*列布局，将整个页面(body标签内部)划分出来的多行，划分为多列。每列为页面的1个部分。css类选择器*/
+        div.all-columnSplit { display: inline-block; vertical-align: top; font-size: medium; width: 100%; }
+
+
+        /*行布局，从页面的部分中划出多行。css类选择器*/
+        div.part-rowSplit { display: block; }
+
+        /*列布局，从页面的部分中划出多列。css类选择器*/
+        div.part-columnSplit { display: inline-block; vertical-align: top; }
+
+
+        /*header右边，显示菜单列表的1项（链接列表的1项）*/
+        h2.rightHeader-div { width: 100px; text-decoration: none; text-align: center; color: white; font-size: large; }
+
+        /*header右边，显示菜单列表的1项（链接列表的1项）*/
+        a.rightHeader-a { display: inline-block; width: 100px; text-decoration: none; text-align: center; color: white; font-size: large; height: 25px; position: static; }
+            a.rightHeader-a:hover { background-color: darkblue; }
+
+        /*header右边，显示菜单列表的1项（链接列表的1项）,这个用于当前打开的选项*/
+        a.rightHeader-open-a { background-color: white; color: black; display: inline-block; width: 100px; text-decoration: none; text-align: center; font-size: large; height: 25px; position: static; }
+
+
+
+        /*我的作品列表中的1项的链接*/
+        a.myProduction-a {text-decoration: none; }
+        /*我的作品列表中的1项的容器（包括a标签内部的所有内容）*/
+        div.myProduction-allDiv { display: inline-block; width: 47%; margin-left: 1%; margin-right: 1%; margin-bottom: 25px; vertical-align: top; border: 1px solid silver; height: 180px; overflow-y: hidden; }
+            div.myProduction-allDiv:hover { border: 1px solid blue; height: auto; min-height: 180px; overflow-y: visible; }
+            div.myProduction-allDiv:nth-child(2n+1) { width: 46%; margin-left: 2%; margin-right: 1%; }
+            div.myProduction-allDiv:nth-child(2n+2) { width: 46%; margin-left: 1%; margin-right: 2%; }
+        /*我的作品的第1行*/
+        div.myProduction-firstRow { display: block; height: 50px; border-bottom: 1px solid silver; }
+        /*我的作品列表中的1项的图标*/
+        img.myProduction-img { display: inline-block; width: 60px; height: 50px; }
+        /*我的作品列表中的1项的标题*/
+        div.myProduction-titleDiv { display: inline-block; height: inherit; padding-left: 8px; padding-top: 12px; vertical-align: top; font-size: large; color: blue;text-decoration:underline; }
+        /*我的作品列表中的1项的详情*/
+        div.myProduction-detailDiv { display: block; width: 100%; height: auto; vertical-align: top; font-size: medium; text-indent: 2em; line-height: 2;color:black; }
+    </style>
+
+</head>
+<body style="margin-top: 0px; min-width: 600px;">
+
+    <!-- header占位置的div -->
+    <div class="all-rowSplit" style="height: 25px;"></div>
+
+    <!-- header实际内容的div   header左边，显示昵称  -->
+    <div id="entityLeftHeader-div" style="padding-left:8px;vertical-align: central; background-color: blue; color: white; font-size: large; height: 25px; width: 100%; position: fixed; top: 0px; left: 0px; z-index: 9999; visibility: visible;">董文浩的简介</div>
+
+    <!-- header实际内容的div   header右边，显示菜单列表（链接列表） -->
+    <!--下面的2个div 用于实现header的特殊效果 -->
+    <div id="entityRightHeader-div" style="vertical-align: central; background-color: blue; height: 25px; font-size: 0px; position: fixed; left: 120px; right: 0px; top: 0px; overflow: hidden; z-index: 9999; visibility: visible;">
+        <div style="vertical-align: central; background-color: blue; height: 25px; max-width: 400px; width: 100%; font-size: 0px; position: absolute; right: 0px; top: 0px; overflow: hidden; z-index: 9999;">
+            <a class="rightHeader-a" href="./MyIndex.html">
+                <div class="rightHeader-div">我的首页</div>
+            </a>
+            <a class="rightHeader-a" href="./MySkill.html">
+                <div class="rightHeader-div">我的技能</div>
+            </a>
+            <a class="rightHeader-a" href="./MyProduction.html">
+                <div class="rightHeader-div">我的作品</div>
+            </a>
+            <a class="rightHeader-open-a" href="./ContactInformation.html">
+                <div class="rightHeader-div">联系方式</div>
+            </a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        /*
+        //header左边，显示昵称
+        var divEntityLeftHeader = document.getElementById("entityLeftHeader-div");
+        // header右边，显示菜单列表（链接列表）
+        var divEntityRightHeader = document.getElementById("entityRightHeader-div");
+
+        var scrollFunc = function (e)
+        {
+            e = e || window.event;
+
+            var boolIsMoveUp = false;
+            var boolIsMoveDown = false;
+
+            if (e.wheelDelta)
+            {   //第一步：先判断浏览器IE，谷歌滑轮事件               
+                if (e.wheelDelta > 0)
+                {   //当滑轮向上滚动时  
+                    boolIsMoveUp = true;
+                }
+                if (e.wheelDelta < 0)
+                {   //当滑轮向下滚动时  
+                    boolIsMoveDown = true;
+                }
+            }
+            else if (e.detail)
+            {   //Firefox滑轮事件  
+                if (e.detail > 0)
+                {   //当滑轮向上滚动时  
+                    boolIsMoveUp = true;
+                }
+                if (e.detail < 0)
+                {   //当滑轮向下滚动时  
+                    boolIsMoveDown = true;
+                }
+            }
+            if (boolIsMoveUp)
+            {
+                divEntityLeftHeader.style.visibility = "visible";
+                divEntityRightHeader.style.visibility = "visible";
+            }
+            else if (boolIsMoveDown)
+            {
+                divEntityLeftHeader.style.visibility = "hidden";
+                divEntityRightHeader.style.visibility = "hidden";
+            }
+        }
+
+        //给页面绑定滑轮滚动事件  
+        if (document.addEventListener)
+        {//firefox  
+            document.addEventListener('DOMMouseScroll', scrollFunc, false);
+        }
+        //滚动滑轮触发scrollFunc方法  //ie 谷歌  
+        window.onmousewheel = document.onmousewheel = scrollFunc;
+        */
+        </script>
+
+    <div class="all-rowSplit">
+        <table style="margin-left:40px;border: thin solid white">
+            <tr><td>姓名：</td><td>董文浩</td></tr>
+            <tr><td> </td></tr>
+            <tr><td>邮箱：</td><td>dongwenhao9@outlook.com</td></tr>
+            <tr><td> </td></tr>
+            <tr><td>电话：</td><td>15570065778</td></tr>
+            <tr><td> </td></tr>
+        </table>
+    </div>
+
+</body>
+</html>

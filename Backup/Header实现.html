@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的首页</title>
+
+    <style type="text/css">
+        /*header右边，显示菜单列表的1项（链接列表的1项）*/
+        h2.rightHeader-div { width: 100px; text-decoration: none; text-align: center; color: white; font-size: large; }
+
+        /*header右边，显示菜单列表的1项（链接列表的1项）*/
+        a.rightHeader-a { display: inline-block; width: 100px;  height: 25px; position: static;font-size:large; }
+            a.rightHeader-a:hover { background-color: darkblue; }
+
+        /*header右边，显示菜单列表的1项（链接列表的1项）,这个用于当前打开的选项*/
+        a.rightHeader-open-a { display: inline-block; width: 100px;  height: 25px; position: static;font-size:large; }
+    </style>
+
+</head>
+<body style="margin-top: 0px;  height: 1233px;">
+
+    <!-- header实际内容的div   header左边，显示昵称  -->
+    <div id="entityLeftHeader-div" style=" height: 25px;width:100%; position: fixed; top: 0px; left: 0px; z-index: 9999;visibility:visible;">董文浩的简介</div>
+
+
+    <!-- header实际内容的div   header右边，显示菜单列表（链接列表） -->
+    <!--下面的2个div 用于实现header的特殊效果 -->
+    <div id="entityRightHeader-div" style="height: 25px; font-size: 0px; position: fixed; left: 120px; right: 0px; top: 0px; overflow: hidden; z-index: 9999; visibility: visible;">
+        <div style="height: 25px; max-width: 400px; width: 100%; font-size: 0px; position: absolute; right: 0px; top: 0px; overflow: hidden; z-index: 9999;">
+            <a class="rightHeader-a" href="TestHtmlPage.html">
+                <div class="rightHeader-div">联系方式</div>
+            </a>
+            <a class="rightHeader-a" href="TestHtmlPage.html">
+                <div class="rightHeader-div">我的作品</div>
+            </a>
+            <a class="rightHeader-a" href="TestHtmlPage.html">
+                <div class="rightHeader-div">我的技能</div>
+            </a>
+            <a class="rightHeader-open-a" href="TestHtmlPage.html">
+                <div class="rightHeader-div">我的首页</div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
